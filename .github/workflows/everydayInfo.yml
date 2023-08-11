@@ -28,4 +28,4 @@ jobs:
         pip install -r requirements.txt
     - name: everydayInfo
       run: |
-        python main.py
+        python main.py $XIA_TOKEN
