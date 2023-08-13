@@ -8,8 +8,8 @@ arguments = sys.argv
 url = 'https://60s.viki.moe/60s'
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36 Edg/86.0.622.38"}
-
-xia_token = arguments[1]
+if len(arguments) >1:
+    xia_token = arguments[1]
 
 def insert_line_breaks(original_string, num_chars):
     split_string = ""
