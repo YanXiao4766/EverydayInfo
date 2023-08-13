@@ -5,11 +5,11 @@ import sys
 
 
 arguments = sys.argv
-url = ' http://bjb.yunwj.top/php/60miao/qq.php'
+url = 'https://60s.viki.moe/60s'
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36 Edg/86.0.622.38"}
-
-xia_token = arguments[1]
+if len(arguments) >1:
+    xia_token = arguments[1]
 
 def insert_line_breaks(original_string, num_chars):
     split_string = ""
@@ -25,13 +25,15 @@ def getInfo():
     title = '60秒读懂世界'
     text=''
     data =[]
-    
-    res = requests.get(url,headers=headers).text
-    js_text = json.loads(res)['wb']
-    for i in range(len(js_text)):
-        string = insert_line_breaks(js_text[i][0],23)
-        data.append(string)
-    text = '\n'.join(data)
+    try:
+        res = requests.get(url,headers=headers).text
+        js_text = json.loads(res)['data']
+        for i in range(len(js_text)):
+            string = insert_line_breaks(js_text[i],23)
+            data.append(string)
+        text = '\n'.join(data)
+    except :
+        text = 'Bug了'
 
     return {
         'text':title,
