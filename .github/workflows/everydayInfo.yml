@@ -15,7 +15,8 @@ jobs:
     
     env:
       XIA_TOKEN: ${{ secrets.XIA_TOKEN }}
-
+      SAYHUAHUO_USERNAME: ${{ secrets.SAYHUAHUO_USERNAME }}
+      SAYHUAHUO_PASSWORD: ${{ secrets.SAYHUAHUO_PASSWORD }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
@@ -29,3 +30,4 @@ jobs:
     - name: everydayInfo
       run: |
         python main.py $XIA_TOKEN
+        python SayHuaHuo.py $SAYHUAHUO_USERNAME $SAYHUAHUO_PASSWORD $XIA_TOKEN
