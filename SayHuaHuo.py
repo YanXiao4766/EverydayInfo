@@ -31,7 +31,6 @@ def check():
         session.post(headers=headers,data=data,url=url)
     except Exception :
         return '登录失败'
-    print('login')
     try:
         res = session.get(headers=headers,url=checkPageUrl)
         # 使用 BeautifulSoup 解析 HTML
@@ -43,10 +42,8 @@ def check():
     if len(formhash) < 1:
         return '获取formhash失败'
     checkData = {'formhash' : formhash,'qdxq' : 'yl','qdmode' : '1','todaysay':'签到打卡','fastreply' : '0'}
-    print('getFOrmHash: ' + formhash )
     try:
         res = session.post(headers=checkHeader,data=checkData,url=checkUrl)
-        print(res.text)
         if '签到成功' in res.text:
             return '签到成功~'
         if '已经签到' in res.text:
@@ -59,7 +56,6 @@ def check():
 
 def main():
     returnMsg = check()
-    print(returnMsg)
     data = {
         'text':'Say花火签到提醒',
         'desp':returnMsg
