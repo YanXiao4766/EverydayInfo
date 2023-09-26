@@ -57,7 +57,7 @@ def check():
 def main():
     returnMsg = check()
     data = {
-        'text':'Say花火签到提醒',
+        'text':'Say花火：'+returnMsg,
         'desp':returnMsg
     }
     requests.post('http://wx.xtuis.cn/' + xia_token +'.send', data=data)
