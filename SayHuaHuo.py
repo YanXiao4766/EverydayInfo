@@ -45,7 +45,7 @@ def check():
     try:
         res = session.post(headers=checkHeader,data=checkData,url=checkUrl)
         if '签到成功' in res.text:
-            return '签到成功~'
+            return res.text
         if '已经签到' in res.text:
             return '今天已经签到过了~'
     except Exception :
