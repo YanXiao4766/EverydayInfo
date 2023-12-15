@@ -5,7 +5,7 @@ import sys
 
 
 arguments = sys.argv
-url = 'https://60s.viki.moe/60s'
+url = 'https://jx.iqfk.top/60s.php?key=54K55paw6Iqx6Zuo'
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36 Edg/86.0.622.38"}
 if len(arguments) >1:
@@ -27,7 +27,7 @@ def getInfo():
     data =[]
     try:
         res = requests.get(url,headers=headers).text
-        js_text = json.loads(res)['data']
+        js_text = json.loads(res)['data']['news']
         for i in range(len(js_text)):
             string = insert_line_breaks(js_text[i],23)
             data.append(string)
