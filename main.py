@@ -29,7 +29,8 @@ def getInfo():
         res = requests.get(url,headers=headers).text
         js_text = json.loads(res)['data']['news']
         for i in range(len(js_text)):
-            string = insert_line_breaks(js_text[i],23)
+            # string = insert_line_breaks(js_text[i],23)
+            string = js_text[i]
             data.append(string)
         text = '\n'.join(data)
     except :
